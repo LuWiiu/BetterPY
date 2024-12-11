@@ -31,16 +31,9 @@ def debugFunc(func):
         print(f"{a} came from function {func.__name__} in time {time.time() - _time}")
         return a
     return wrapper
-
-if __name__ == "__main__":
-    @ExOnMake
-    @demoFunc
-    def p(): print("hi")
-
-    @expectFunc
-    def w(): return [0, str]
-    w()
-
-    @debugFunc
-    def q(): print("b")
-    q()
+    
+def depricatedFunc(func):
+    def wrapper(*args):
+        print(f"Warning function G.{func.__name__} is depricated | use G.frame.{func.__name__}")
+        return func(*args)
+    return wrapper
