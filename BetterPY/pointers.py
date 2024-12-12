@@ -2,11 +2,11 @@ from .errors import FatileWarning, CritcalWarning
 
 class pointers:
 
-    objects = {}
+    objects = {"unreg": {}}
 
     def __init__(s): ...
     def newPointer(s, object: any, tag: str, _type: type):
-        if not _type in s.objects: s.objects[_type] = {}
+        if not _type in s.objects and _type != "unreg": s.objects[_type] = {}
         if tag in s.objects[_type]: FatileWarning(f"Attempt to overwrite pointer {tag}")
         s.objects[_type][tag] = object
     def getPointer(s, tag: str, _type: type):
