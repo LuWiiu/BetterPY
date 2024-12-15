@@ -31,8 +31,8 @@ def debugFunc(func):
         print(f"{a} came from function {func.__name__} in time {time.time() - _time}")
         return a
     return wrapper
-    
-def depricatedFunc(func):
+
+def deprecatedFunc(func):
     def wrapper(*args):
         print(f"Warning function G.{func.__name__} is depricated | use G.frame.{func.__name__}")
         return func(*args)
