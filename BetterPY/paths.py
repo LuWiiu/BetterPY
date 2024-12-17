@@ -3,6 +3,9 @@ from .expectType import expect
 from .wrappers import expectFunc
 
 class pathing:
+
+    paths = {}
+
     @expectFunc
     def addPath(name: str, pathHeadID: str, isFile: bool):
         if not expect.strict(name, str): CritcalWarning (f"name is'nt str its {type(name)}"); return 0
@@ -23,9 +26,10 @@ class pathing:
     @expectFunc
     def getPath(name: str):
         if not name in pathing.paths: CritcalWarning(f"{name} is'nt in paths!"); return 0
-        return[ pathing.paths[name], str]
+        return[pathing.paths[name], str]
 
-    paths = {"root": getFilePath()}
+    def setRoot(path: str):
+        pathing.paths["root"] = pathing.getFilePath(path)
 
 if __name__ == "__main__":
     pathing.addPath("hi.txt", "root", True)
