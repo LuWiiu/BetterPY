@@ -14,6 +14,22 @@ class Error:
     def __str__(s)->str:
         return f"{s.Ecode} | {s.Etext} | {s.Efrom}"
 
+class ErrorLog:
+    Errors: list[Error]
+    def __init__(s):
+        s.Errors = []
+    def __iadd__(s, other: Error):
+        s.Errors.append(other)
+        return s
+    def throw(s):
+        print(s)
+        s.Errors = []
+    def __str__(s)->str:
+        fancyErrors = ""
+        for error in s.Errors:
+            if error.Ecode != 0: fancyErrors += f"\n[LOGGED ERROR]:\n{error}"
+        return f"{fancyErrors}\n"
+
 ER_BLUE =   "\033[38;2;0;0;255m"
 ER_YELLOW = "\033[38;2;255;255;0m"
 ER_ORANGE = "\033[38;2;255;165;0m"
