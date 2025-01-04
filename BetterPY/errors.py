@@ -10,7 +10,7 @@ class Error:
         s.Etext = "%no text"
         s.Efrom = "%no sender"
     def throw(s):
-        if s.Ecode != 0: print(f"[ERROR]: {s.Ecode} | {s.Etext} | {s.Efrom}")
+        if s.Ecode != 0: print(f"[ERROR]: {s}")
     def __str__(s)->str:
         return f"{s.Ecode} | {s.Etext} | {s.Efrom}"
 
