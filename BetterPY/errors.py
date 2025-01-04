@@ -11,6 +11,8 @@ class Error:
         s.Efrom = "%no sender"
     def throw(s):
         if s.Ecode != 0: print(f"[ERROR]: {s.Ecode} | {s.Etext} | {s.Efrom}")
+    def __str__(s)->str:
+        return f"[ERROR]: {s.Ecode} | {s.Etext} | {s.Efrom}"
 
 ER_BLUE =   "\033[38;2;0;0;255m"
 ER_YELLOW = "\033[38;2;255;255;0m"
