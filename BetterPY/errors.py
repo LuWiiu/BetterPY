@@ -5,7 +5,10 @@ class Error:
     Ecode: int
     Etext: str
     Efrom: str
-    def __init__(s): ...
+    def __init__(s): 
+        s.Ecode = 0
+        s.Etext = "%no text"
+        s.Efrom = "%no sender"
     def throw(s):
         if s.Ecode != 0: print(f"[ERROR]: {s.Ecode} | {s.Etext} | {s.Efrom}")
 
